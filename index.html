@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moon Cafe</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+.cafe-tagline {
+    text-align: center !important;
+    padding: 55px 20px 45px !important;
+    background: #f5f1e8 !important;
+}
+
+.cafe-tagline h2 {
+    font-family: Georgia, serif !important;
+    font-size: 36px !important;
+    font-weight: normal !important;
+    color: #2b2118 !important;
+    margin: 0 0 15px !important;
+    letter-spacing: 0.5px !important;
+}
+
+.cafe-tagline p {
+    font-family: Arial, sans-serif !important;
+    font-size: 11px !important;
+    letter-spacing: 4px !important;
+    color: #8a6a4a !important;
+    margin: 0 !important;
+}
+</style>
+    
+</head>
+
+<body>
+
+   <header>
+
+    <h2>Moon Cafe ☕</h2>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <nav id="mobileNav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="booking.html">Book a Table</a>
+        <a href="cart.html">🛒 Cart</a>
+    </nav>
+
+</header>
+
+
+
+<section id="home" class="hero">
+
+</section>
+
+<div class="cafe-tagline">
+
+    <h2>Where Every Moment Feels Like Moonlight</h2>
+
+    <p>COFFEE • CONVERSATIONS • GOOD MOMENTS</p>
+
+</div>
+
+   <section id="menu">
+
+    <h2>Our Menu</h2>
+    <p class="menu-subtitle">Freshly prepared for your perfect moment.</p>
+
+    <div class="menu-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80"
+                alt="Cold Coffee">
+
+            <h3>Cold Coffee</h3>
+            <p>Chilled creamy coffee</p>
+            <strong>₹99</strong>
+           <div id="coldCoffeeOrder" style="display: none;">
+
+    <div class="quantity-box">
+        <button onclick="changeQuantity(-1)">−</button>
+        <span id="quantity">1</span>
+        <button onclick="changeQuantity(1)">+</button>
+    </div>
+
+    <p id="totalPrice">Total: ₹99</p>
+    <button onclick="orderOnWhatsApp('Cold Coffee', 99)">
+    Confirm Order
+</button>
+
+</div>
+
+<button onclick="addToCart('Cold Coffee', 99)">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Blue Lagoon -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"
+        alt="Blue Lagoon">
+
+    <h3>Blue Lagoon</h3>
+    <p>Refreshing citrus mocktail</p>
+    <strong>₹129</strong>
+
+    <div id="blueLagoonOrder" style="display: none;">
+
+        <div class="quantity-box">
+            <button onclick="changeBlueLagoonQuantity(-1)">−</button>
+
+            <span id="blueLagoonQuantity">1</span>
+
+            <button onclick="changeBlueLagoonQuantity(1)">+</button>
+        </div>
+
+        <p id="blueLagoonTotal">Total: ₹129</p>
+
+        <button onclick="orderOnWhatsApp('Blue Lagoon', 129)">
+            Confirm Order
+        </button>
+
+    </div>
+
+    Blue Lagoon
+<button onclick="addToCart('Blue Lagoon', 129)">Add to Cart</button>
+</div>
+
+<!-- French Fries -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=600&q=80"
+        alt="French Fries">
+
+    <h3>French Fries</h3>
+    <p>Crispy golden fries</p>
+    <strong>₹99</strong>
+
+    <div id="friesOrder" style="display: none;">
+
+        <div class="quantity-box">
+            <button onclick="changeFriesQuantity(-1)">−</button>
+
+            <span id="friesQuantity">1</span>
+
+            <button onclick="changeFriesQuantity(1)">+</button>
+        </div>
+
+        <p id="friesTotal">Total: ₹99</p>
+
+        <button onclick="orderOnWhatsApp('French Fries', 99)">
+            Confirm Order
+        </button>
+
+</div>
+
+    French Fries
+<button onclick="addToCart('French Fries', 99)">Add to Cart</button>
+ 
+</div>
+
+<!-- Cappuccino -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80"
+        alt="Cappuccino">
+
+    <h3>Cappuccino</h3>
+    <p>Rich and creamy coffee</p>
+    <strong>₹119</strong>
+
+    <div id="cappuccinoOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changeCappuccinoQuantity(-1)">−</button>
+
+            <span id="cappuccinoQuantity">1</span>
+
+            <button onclick="changeCappuccinoQuantity(1)">+</button>
+
+        </div>
+
+        <p id="cappuccinoTotal">Total: ₹119</p>
+
+        <button onclick="orderOnWhatsApp('Cappuccino', 119)">
+            Confirm Order
+        </button>
+
+    </div>
+
+     Cappuccino
+<button onclick="addToCart('Cappuccino', 119)">Add to Cart</button>
+
+</div>
+
+<!-- Virgin Mojito -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+        alt="Virgin Mojito">
+
+    <h3>Virgin Mojito</h3>
+    <p>Fresh mint and lime mocktail</p>
+    <strong>₹119</strong>
+
+    <div id="virginMojitoOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changeVirginMojitoQuantity(-1)">−</button>
+
+            <span id="virginMojitoQuantity">1</span>
+
+            <button onclick="changeVirginMojitoQuantity(1)">+</button>
+
+        </div>
+
+        <p id="virginMojitoTotal">Total: ₹119</p>
+
+        <button onclick="orderOnWhatsApp('Virgin Mojito', 119)">
+            Confirm Order
+        </button>
+
+    </div>
+
+    Virgin Mojito
+<button onclick="addToCart('Virgin Mojito', 119)">Add to Cart</button>
+</div>
+
+<!-- Strawberry Mojito -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=600&q=80"
+        alt="Strawberry Mojito">
+
+    <h3>Strawberry Mojito</h3>
+    <p>Sweet and refreshing mocktail</p>
+    <strong>₹129</strong>
+
+    <div id="strawberryMojitoOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changeStrawberryMojitoQuantity(-1)">−</button>
+
+            <span id="strawberryMojitoQuantity">1</span>
+
+            <button onclick="changeStrawberryMojitoQuantity(1)">+</button>
+
+        </div>
+
+        <p id="strawberryMojitoTotal">Total: ₹129</p>
+
+        <button onclick="orderOnWhatsApp('Strawberry Mojito', 129)">
+            Confirm Order
+        </button>
+
+    </div>
+
+   Strawberry Mojito
+<button onclick="addToCart('Strawberry Mojito', 129)">Add to Cart</button>
+
+</div>
+
+<!-- Veg Cheese Sandwich -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80"
+        alt="Veg Cheese Sandwich">
+
+    <h3>Veg Cheese Sandwich</h3>
+    <p>Cheesy and freshly grilled</p>
+    <strong>₹129</strong>
+
+    <div id="sandwichOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changeSandwichQuantity(-1)">−</button>
+
+            <span id="sandwichQuantity">1</span>
+
+            <button onclick="changeSandwichQuantity(1)">+</button>
+
+        </div>
+
+        <p id="sandwichTotal">Total: ₹129</p>
+
+        <button onclick="orderOnWhatsApp('Veg Cheese Sandwich', 129)">
+            Confirm Order
+        </button>
+
+    </div>
+
+    Veg Cheese Sandwich
+<button onclick="addToCart('Veg Cheese Sandwich', 129)">Add to Cart</button>
+
+</div>
+
+<!-- Paneer Wrap -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80"
+        alt="Paneer Wrap">
+
+    <h3>Paneer Wrap</h3>
+    <p>Spicy paneer with fresh veggies</p>
+    <strong>₹149</strong>
+
+    <div id="paneerWrapOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changePaneerWrapQuantity(-1)">−</button>
+
+            <span id="paneerWrapQuantity">1</span>
+
+            <button onclick="changePaneerWrapQuantity(1)">+</button>
+
+        </div>
+
+        <p id="paneerWrapTotal">Total: ₹149</p>
+
+        <button onclick="orderOnWhatsApp('Paneer Wrap', 149)">
+            Confirm Order
+        </button>
+
+    </div>
+
+   Paneer Wrap
+<button onclick="addToCart('Paneer Wrap', 149)">Add to Cart</button>
+
+</div>
+
+<!-- Chocolate Brownie -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80"
+        alt="Chocolate Brownie">
+
+    <h3>Chocolate Brownie</h3>
+    <p>Warm and rich chocolate brownie</p>
+    <strong>₹119</strong>
+
+    <div id="brownieOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changeBrownieQuantity(-1)">−</button>
+
+            <span id="brownieQuantity">1</span>
+
+            <button onclick="changeBrownieQuantity(1)">+</button>
+
+        </div>
+
+        <p id="brownieTotal">Total: ₹119</p>
+
+        <button onclick="orderOnWhatsApp('Chocolate Brownie', 119)">
+            Confirm Order
+        </button>
+
+    </div>
+
+    Chocolate Brownie
+<button onclick="addToCart('Chocolate Brownie', 119)">Add to Cart</button>
+
+</div>
+
+<!-- Chocolate Cake -->
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+        alt="Chocolate Cake">
+
+    <h3>Chocolate Cake</h3>
+    <p>Soft chocolate cake with cream</p>
+    <strong>₹149</strong>
+
+    <div id="cakeOrder" style="display: none;">
+
+        <div class="quantity-box">
+
+            <button onclick="changeCakeQuantity(-1)">−</button>
+
+            <span id="cakeQuantity">1</span>
+
+            <button onclick="changeCakeQuantity(1)">+</button>
+
+        </div>
+
+        <p id="cakeTotal">Total: ₹149</p>
+
+        <button onclick="orderOnWhatsApp('Chocolate Cake', 149)">
+            Confirm Order
+        </button>
+
+    </div>
+
+    Chocolate Cake
+<button onclick="addToCart('Chocolate Cake', 149)">Add to Cart</button>
+
+</div>
+    </div>
+
+</section>
+
+
+   <section id="about">
+
+    <div class="about-content">
+
+        <div class="about-text">
+
+            <h2>About Moon Cafe</h2>
+            <p class="about-tagline">A cozy corner for coffee, conversations and calm moments.</p>
+
+            <p>
+                Moon Cafe is a cozy place where great coffee,
+                delicious food and peaceful moments come together.
+            </p>
+
+            <p>
+                Whether you're meeting friends, working on your laptop,
+                or simply enjoying some quiet time, Moon Cafe is made
+                for you.
+            </p>
+
+        </div>
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80"
+                alt="Moon Cafe">
+                
+        </div>
+
+    </div>
+
+</section>
+<!-- Reviews -->
+<section id="reviews">
+    <h2>What Our Guests Say</h2>
+    <p class="reviews-subtitle">
+        A few words from people who visited Moon Cafe.
+    </p>
+
+    <div class="reviews-container">
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Amazing coffee and such a peaceful atmosphere.
+                Really loved the vibe!"
+            </p>
+            <h3>— Aarav</h3>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                "The food was delicious and the cafe felt
+                really cozy. Would visit again!"
+            </p>
+            <h3>— Ananya</h3>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Perfect place to relax, enjoy coffee and
+                spend time with friends."
+            </p>
+            <h3>— Rohan</h3>
+        </div>
+
+    </div>
+</section>
+<!-- Why Choose Moon Cafe -->
+<section id="why-us">
+
+    <h2>Why Choose Moon Cafe</h2>
+
+    <p class="why-subtitle">
+        More than coffee, it's a place to enjoy the moment.
+    </p>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <div class="why-icon">☕</div>
+            <h3>Freshly Prepared</h3>
+            <p>Fresh food and beverages prepared with care for every order.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🌙</div>
+            <h3>Cozy Atmosphere</h3>
+            <p>A peaceful and comfortable place to relax and enjoy your time.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🥪</div>
+            <h3>Quality Ingredients</h3>
+            <p>Delicious flavours made using carefully selected ingredients.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">❤️</div>
+            <h3>Made With Care</h3>
+            <p>Every order is prepared with attention to quality and taste.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- Gallery -->
+<section id="gallery">
+
+    <h2>Inside Moon Cafe</h2>
+
+    <p class="gallery-subtitle">
+        A glimpse of our cozy space, coffee and delicious moments.
+    </p>
+
+    <div class="gallery-container">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80"
+                alt="Cozy cafe interior">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80"
+                alt="Cafe seating">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=800&q=80"
+                alt="Coffee and cafe">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                alt="Fresh coffee">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                alt="Restaurant interior">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
+                alt="Cafe dining area">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Book a Table -->
+<section id="booking">
+
+    <h2>Book a Table</h2>
+
+    <p class="booking-subtitle">
+        Reserve your table and enjoy a perfect moment at Moon Cafe.
+    </p>
+
+    <div class="booking-container">
+
+        <input type="text" id="bookingName" placeholder="Your Name">
+
+        <input type="tel" id="bookingPhone" placeholder="Phone Number">
+
+        <input type="date" id="bookingDate">
+
+        <input type="time" id="bookingTime">
+
+        <select id="bookingGuests">
+            <option value="">Number of Guests</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6 Guests</option>
+        </select>
+
+        <button onclick="bookTable()">Reserve Table</button>
+
+    </div>
+
+</section>
+    <section id="contact">
+
+    <h2>Contact Moon Cafe</h2>
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+            <h3>📍 Location</h3>
+            <p>Patna, Bihar</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>📞 Phone</h3>
+            <p>Call us for orders and enquiries.</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>🕐 Opening Hours</h3>
+            <p>10:00 AM - 10:00 PM</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <footer>
+
+        <p>© 2026 Moon Cafe</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html> 

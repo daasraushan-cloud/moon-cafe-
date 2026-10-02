@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moon Cafe - Book a Table</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+#booking-page {
+    width: 100%;
+    min-height: 80vh;
+    padding: 70px 6%;
+    box-sizing: border-box;
+    background: #f5f1e8;
+
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 60px !important;
+    align-items: center;
+}
+
+.booking-image {
+    width: 100% !important;
+    height: 600px !important;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.booking-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.booking-content {
+    width: 100% !important;
+    max-width: 600px !important;
+    box-sizing: border-box;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+
+    display: block !important;
+}
+
+.booking-small-title {
+    color: #8a6a4a !important;
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.booking-content h1 {
+    font-family: Georgia, serif;
+    font-size: 50px;
+    line-height: 1.1;
+    color: #2b2118;
+    margin: 12px 0 20px;
+}
+
+.booking-description {
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+#bookingForm {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+}
+
+#bookingForm input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px solid #ddd3c5;
+    border-radius: 8px;
+    background: #faf8f4;
+    font-size: 15px;
+}
+
+#bookingForm button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 30px;
+    background: #2b2118;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#bookingForm button:hover {
+    background: #6b4f35;
+}
+
+@media (max-width: 768px) {
+
+    #booking-page {
+        grid-template-columns: 1fr !important;
+        padding: 40px 5%;
+        gap: 30px !important;
+    }
+
+    .booking-image {
+        height: 350px !important;
+    }
+
+    .booking-content {
+        padding: 30px 22px;
+    }
+
+    .booking-content h1 {
+        font-size: 38px;
+    }
+}
+
+</style>
+<style>
+
+.cafe-story {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 100px 8%;
+    background: #2b2118;
+    color: white;
+    text-align: center;
+}
+
+.cafe-story h2 {
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 48px;
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.cafe-story-text {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: #d8d0c5;
+    line-height: 1.8;
+}
+
+.cafe-features {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.cafe-feature {
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+}
+
+.cafe-feature h3 {
+    color: white;
+    font-family: Georgia, serif;
+}
+
+.cafe-feature p {
+    color: #c8c0b5;
+}
+
+@media (max-width: 768px) {
+    .cafe-features {
+        grid-template-columns: 1fr;
+    }
+
+    .cafe-story h2 {
+        font-size: 34px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Moon Cafe ☕</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#menu">Menu</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="cart.html">🛒 Cart</a>
+        </nav>
+    </header>
+
+
+    <section id="booking-page">
+
+        <div class="booking-image">
+            <img src="images/moon-cafe-hero.png" alt="Moon Cafe">
+        </div>
+
+
+        <div class="booking-content">
+
+            <p class="booking-small-title">MOON CAFE</p>
+
+            <h1>Book Your Table</h1>
+
+            <p class="booking-description">
+                Come for the coffee, stay for the conversations.
+                Reserve your table and enjoy a relaxed café experience.
+            </p>
+
+
+            <form id="bookingForm">
+
+                <input
+                    type="text"
+                    id="bookingName"
+                    placeholder="Your Name"
+                >
+
+                <input
+                    type="tel"
+                    id="bookingPhone"
+                    placeholder="Phone Number"
+                >
+
+                <input
+                    type="date"
+                    id="bookingDate"
+                >
+
+                <input
+                    type="time"
+                    id="bookingTime"
+                >
+
+                <input
+                    type="number"
+                    id="bookingGuests"
+                    placeholder="Number of Guests"
+                    min="1"
+                >
+
+                <button type="button" onclick="bookTable()">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+    <section class="cafe-story">
+
+    <p class="booking-small-title">THE MOON CAFE EXPERIENCE</p>
+
+    <h2>A Place For Coffee, Conversations & Good Moments</h2>
+
+    <p class="cafe-story-text">
+        Moon Cafe is a cozy space made for slow mornings, evening conversations
+        and memorable moments. From freshly prepared coffee to delicious bites,
+        every visit is meant to feel comfortable and special.
+    </p>
+
+    <div class="cafe-features">
+
+        <div class="cafe-feature">
+            <span>☕</span>
+            <h3>Fresh Coffee</h3>
+            <p>Freshly prepared drinks made for every mood.</p>
+        </div>
+
+        <div class="cafe-feature">
+            <span>🌙</span>
+            <h3>Cozy Atmosphere</h3>
+            <p>A warm and relaxed place to spend your time.</p>
+        </div>
+
+        <div class="cafe-feature">
+            <span>✨</span>
+            <h3>Good Moments</h3>
+            <p>Perfect for friends, family and conversations.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

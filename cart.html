@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Moon Cafe - Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           CART PAGE
+        ========================= */
+
+        #cart {
+            min-height: 80vh;
+            padding: 80px 6%;
+            background: #f5f1e8;
+            box-sizing: border-box;
+        }
+
+        .cart-layout {
+            width: 100%;
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid !important;
+            grid-template-columns: 1.5fr 1fr !important;
+            gap: 50px !important;
+            align-items: stretch;
+        }
+
+
+        /* =========================
+           LEFT CART
+        ========================= */
+
+        .cart-main {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .cart-small-title {
+            color: #8a6a4a;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .cart-main h1 {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            color: #2b2118;
+            margin: 15px 0 35px;
+        }
+
+
+        /* =========================
+           CART ITEMS
+        ========================= */
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 0;
+
+            border-bottom: 1px solid #e8e1d7;
+        }
+
+        .cart-item-info h3 {
+            margin: 0 0 7px;
+            color: #2b2118;
+        }
+
+        .cart-item-info p {
+            margin: 0 0 5px;
+            color: #777;
+        }
+
+        .cart-item-info strong {
+            color: #8a6a4a;
+        }
+
+
+        /* =========================
+           CART CONTROLS
+        ========================= */
+
+        .cart-controls {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .cart-controls button {
+            border: none;
+            background: #2b2118;
+            color: white;
+
+            width: 36px;
+            height: 36px;
+
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .cart-controls .remove-btn {
+            width: auto;
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            background: #eee7dc;
+            color: #2b2118;
+        }
+
+
+        /* =========================
+           CART BOTTOM
+        ========================= */
+
+        .cart-bottom {
+            margin-top: 35px;
+            padding-top: 25px;
+
+            border-top: 1px solid #ddd5ca;
+        }
+
+        #cartTotal {
+            color: #2b2118;
+            font-size: 25px;
+        }
+
+        .cart-bottom button {
+            border: none;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            background: #2b2118;
+            color: white;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cart-bottom button:hover {
+            background: #6b4f35;
+        }
+
+
+        /* =========================
+           RIGHT CAFE PANEL
+        ========================= */
+
+        .cart-side {
+            background: #2b2118 !important;
+            color: white !important;
+
+            padding: 45px;
+
+            border-radius: 24px;
+
+            display: flex !important;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .cart-side-title {
+            color: #c5a47e;
+
+            letter-spacing: 4px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin: 0 0 20px;
+        }
+
+
+        /* =========================
+           CAFE IMAGE
+        ========================= */
+
+        .cart-cafe-image {
+            width: 100%;
+            height: 160px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            display: block;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* =========================
+           SPECIAL MESSAGE CARD
+        ========================= */
+
+        .cart-highlight {
+            background: #3a2c20;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            margin-bottom: 30px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .cart-highlight-small {
+            color: #c5a47e;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+
+            margin: 0 0 10px;
+        }
+
+        .cart-highlight h3 {
+            color: white;
+
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            margin: 0 0 10px;
+        }
+
+        .cart-highlight p {
+            color: #d0c8bd;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+
+            margin: 0;
+        }
+
+
+        /* =========================
+           MAIN MESSAGE
+        ========================= */
+
+        .cart-side h2 {
+            color: white;
+
+            font-family: Georgia, serif;
+
+            font-size: 40px;
+
+            line-height: 1.2;
+
+            font-weight: normal;
+
+            margin: 0 0 20px;
+        }
+
+        .cart-side-line {
+            width: 55px;
+
+            height: 2px;
+
+            background: #c5a47e;
+
+            margin: 5px 0 25px;
+        }
+
+        .cart-side-text {
+            color: #d0c8bd;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .cart-side-feature {
+            padding: 13px 0;
+
+            color: #eee7dc;
+
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            #cart {
+                padding: 40px 5%;
+            }
+
+            .cart-layout {
+                grid-template-columns: 1fr !important;
+
+                gap: 30px !important;
+            }
+
+            .cart-main,
+            .cart-side {
+                padding: 30px 22px;
+            }
+
+            .cart-main h1 {
+                font-size: 38px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+            .cart-controls {
+                flex-wrap: wrap;
+            }
+
+            .cart-side h2 {
+                font-size: 34px;
+            }
+
+            .cart-cafe-image {
+                height: 145px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <h2>Moon Cafe ☕</h2>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#menu">
+                Menu
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+            <a href="booking.html">
+                Book a Table
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         CART SECTION
+    ========================= -->
+
+    <section id="cart">
+
+        <div class="cart-layout">
+
+
+            <!-- =====================
+                 LEFT SIDE
+            ====================== -->
+
+            <div class="cart-main">
+
+                <p class="cart-small-title">
+                    MOON CAFE
+                </p>
+
+                <h1>
+                    Your Cart 🛒
+                </h1>
+
+
+                <div id="cartItems">
+
+                    <p>
+                        Your cart is empty.
+                    </p>
+
+                </div>
+
+
+                <div class="cart-bottom">
+
+                    <h3 id="cartTotal">
+                        Total: ₹0
+                    </h3>
+
+                    <button onclick="checkoutCart()">
+                        Checkout on WhatsApp
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 RIGHT SIDE
+            ====================== -->
+
+            <div class="cart-side">
+
+
+                <p class="cart-side-title">
+                    THE MOON CAFE EXPERIENCE
+                </p>
+
+
+                <!-- CAFE IMAGE -->
+
+                <img
+                    src="images/moon-cafe-hero.png"
+                    alt="Moon Cafe"
+                    class="cart-cafe-image"
+                >
+
+
+                <!-- HIGHLIGHT CARD -->
+
+                <div class="cart-highlight">
+
+                    <p class="cart-highlight-small">
+                        A LITTLE MORE THAN COFFEE
+                    </p>
+
+                    <h3>
+                        Your table is waiting. ☕
+                    </h3>
+
+                    <p>
+                        Choose your favourites, review your order,
+                        and enjoy a relaxed Moon Cafe moment.
+                    </p>
+
+                </div>
+
+
+                <!-- MAIN MESSAGE -->
+
+                <h2>
+                    Good Coffee.<br>
+                    Good Food.<br>
+                    Good Moments.
+                </h2>
+
+
+                <div class="cart-side-line"></div>
+
+
+                <p class="cart-side-text">
+                    Your favourites are waiting for you.
+                    Review your order and place it directly
+                    through WhatsApp.
+                </p>
+
+
+                <!-- FEATURES -->
+
+                <div class="cart-side-feature">
+                    ☕ Freshly prepared
+                </div>
+
+                <div class="cart-side-feature">
+                    🌙 Cozy café experience
+                </div>
+
+                <div class="cart-side-feature">
+                    ✨ Made for good moments
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
